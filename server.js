@@ -1,16 +1,18 @@
+// import packages
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
-const { clog } = require('./middleware/clog');
+// const { clog } = require('./middleware/clog');
 const { v4: uuidv4 } = require('uuid');
 const { text } = require('body-parser');
 
+// set the environment variable to listen to port 3001
 const PORT = process.env.PORT || 3001;
 
 const app = express();
 
 // Import custom middleware, "cLog"
-app.use(clog);
+//app.use(clog);
 
 // Middleware for parsing JSON and urlencoded form data
 app.use(express.json());
@@ -31,14 +33,14 @@ app.get('/notes', (req, res) =>
 
 app.get('/api/notes', (req,res) => {
   res.sendFile(path.join(__dirname, '/db/db.json'))
-}),
+});
 
 // POST request to add a note
 app.post('/api/notes', (req, res) => {
   // Log that a POST request was received
   console.info(`${req.method} request received to add a review`);
 
-  // Destructuring assignment for the items in req.body
+// Destructuring assignment for the items in req.body
   const { title,text } = req.body;
 
   // If all the required properties are present
@@ -47,7 +49,7 @@ app.post('/api/notes', (req, res) => {
     const newNote = {
      title,
      text,
-     note_id: uuidv4(),
+     id: uuidv4(),
     };
 
     // Obtain existing notes
@@ -56,7 +58,7 @@ app.post('/api/notes', (req, res) => {
         console.error(err);
       } else {
         // Convert string into JSON object
-        const parsednotes = JSON.parse(data);
+        let parsednotes = JSON.parse(data);
 
         // Add a new review
         parsednotes.push(newNote);
@@ -85,6 +87,27 @@ app.post('/api/notes', (req, res) => {
   }
 });
 
+// Delete request added at the specific id
+app.delete('/api/notes/:id', (req, res) => {
+  
+console.log(req.params.id)
+fs.readFile('./db/db.json', 'utf8', (err, data) => {
+  if (err) {
+    console.error(err);
+  } else {
+    // Convert string into JSON object
+    let parsednotes = JSON.parse(data);
+    return parsednotes; 
+  }
+
+});
+
+// New array with all of the notes, send the notes back to json
+// const newNoteArray = parsednotes.filter(note => note.id != req.params.id);
+//    console.log(newNoteArray)
+//   .then(newArray => res.json(newArray))
+//   .catch(err => res.json(err))
+// });
 
 app.listen(PORT, () =>
   console.log(`App listening at http://localhost:${PORT} 🚀`)
