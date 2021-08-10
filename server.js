@@ -89,6 +89,8 @@ app.post('/api/notes', (req, res) => {
 
 // Delete request added at the specific id
 app.delete('/api/notes/:id', (req, res) => {
+ // Log that a DELETE request was received
+ console.info(`${req.method} request received to delete a review`);
 
   fs.readFile('./db/db.json', 'utf8', (err, data) => {
     if (err) {
