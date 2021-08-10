@@ -5,6 +5,7 @@ const path = require('path');
 const { clog } = require('./middleware/clog');
 const { v4: uuidv4 } = require('uuid');
 const { text } = require('body-parser');
+const { removeListener } = require('process');
 
 // set the environment variable to listen to port 3001
 const PORT = process.env.PORT || 3001;
@@ -92,8 +93,8 @@ app.delete('/api/notes/:id', (req, res) => {
  // Log that a DELETE request was received
  console.info(`${req.method} request received to delete a review`);
 const notes = JSON.parse(fs.readFileSync('./db/db.json'));
-const delNotes = 
-
+const delNotes = notes.filter((rmvNote) => rmvNote.id != req.params.id);
+fs.writeFileSync('./db/db.json'));
   });
 
   
