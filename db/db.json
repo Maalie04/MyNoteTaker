@@ -3,30 +3,5 @@
         "title": "Test Title",
         "text": "Test text",
         "id": "2281b8e1-e388-4ca1-947f-8d7d75725def"
-    },
-    {
-        "title": "ff",
-        "text": "ff",
-        "id": "2281b8e1-e388-4ca1-947f-8d7d75725adc"
-    },
-    {
-        "title": "new note",
-        "text": "\nnote\n",
-        "id": "fcc2f2a9-998a-4a42-a186-6a067ad18dfd"
-    },
-    {
-        "title": "new note",
-        "text": "text",
-        "id": "e21c3cb5-53d7-497f-b1c8-2cdb3e57203f"
-    },
-    {
-        "title": "Mine",
-        "text": "note",
-        "note_id": "47e2d335-18a8-43ae-96ad-a997ed438a1e"
-    },
-    {
-        "title": "Mine",
-        "text": "note",
-        "id": "0349aa8f-254e-4244-8591-81d3ac36c960"
     }
 ]

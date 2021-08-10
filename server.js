@@ -90,24 +90,19 @@ app.post('/api/notes', (req, res) => {
 // Delete request added at the specific id
 app.delete('/api/notes/:id', (req, res) => {
 
-  console.log(req.params.id)
   fs.readFile('./db/db.json', 'utf8', (err, data) => {
     if (err) {
       console.error(err);
     } else {
       // Convert string into JSON object
       let parsednotes = JSON.parse(data);
-      return parsednotes;
+      res.json(parsednotes);
     }
 
   });
 
-  // New array with all of the notes, send the notes back to json
-  // const newNoteArray = parsednotes.filter(note => note.id != req.params.id);
-  //    console.log(newNoteArray)
-  //   .then(newArray => res.json(newArray))
-  //   .catch(err => res.json(err))
-  // });
+  
+   });
 
   app.listen(PORT, () =>
     console.log(`App listening at http://localhost:${PORT} 🚀`)
