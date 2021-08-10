@@ -93,13 +93,7 @@ app.delete('/api/notes/:id', (req, res) => {
  console.info(`${req.method} request received to delete a review`);
 
   fs.readFile('./db/db.json', 'utf8', (err, data) => {
-    if (err) {
-      console.error(err);
-    } else {
-      // Convert string into JSON object
-      let parsednotes = JSON.parse(data);
-      res.json(parsednotes);
-    }
+  
 
   });
 
