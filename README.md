@@ -41,6 +41,8 @@
 
 ## Usage
 
->
+![alt image](public/assets/exercise.png)
+![alt image](public/assets/exercise.png)
+![alt image](public/assets/exercise.png)
 ## Walkthrough
 
