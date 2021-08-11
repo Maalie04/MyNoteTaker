@@ -91,14 +91,14 @@ app.post('/api/notes', (req, res) => {
 
 // Delete request added at the specific id
 app.delete('/api/notes/:id', (req, res) => {
- // Log that a DELETE request was received
- console.info(`${req.method} request received to delete a review`);
-const notes = JSON.parse(fs.readFileSync('./db/db.json'));
-const delNote = notes.filter((rmvNote) => rmvNote.id != req.params.id);
-fs.writeFileSync('./db/db.json', JSON.stringify(delNotes));
-res.json(delNote);
-  });
+  // Log that a DELETE request was received
+  console.info(`${req.method} request received to delete a review`);
+  const notes = JSON.parse(fs.readFileSync('./db/db.json'));
+  const delNote = notes.filter((rmvNote) => rmvNote.id !== req.params.id);
+  fs.writeFileSync('./db/db.json', JSON.stringify(delNote));
+  res.json(delNote);
+});
 
-  app.listen(PORT, () =>
-    console.log(`App listening at http://localhost:${PORT} 🚀`)
-  );
+app.listen(PORT, () =>
+  console.log(`App listening at http://localhost:${PORT} 🚀`)
+);
