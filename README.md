@@ -44,5 +44,8 @@
 ![alt image](public/assets/exercise.png)
 ![alt image](public/assets/exercise.png)
 ![alt image](public/assets/exercise.png)
+![alt image](public/assets/heroku.png)
+![alt image](public/assets/herokuDep.png)
+
 ## Walkthrough
 
